@@ -107,8 +107,9 @@ namespace Plugin.InAppBilling
                 ProductId = product.ProductId,
                 MicrosPrice = product.MicrosPrice,
                 LocalizedIntroductoryPrice = product.IntroductoryPrice,
-                MicrosIntroductoryPrice = product.IntroductoryPriceAmountMicros
-            });
+                MicrosIntroductoryPrice = product.IntroductoryPriceAmountMicros,
+				SubscriptionPeriod = product.SubscriptionPeriod
+			});
         }
 
         Task<IEnumerable<Product>> GetProductInfoAsync(string[] productIds, string itemType)
@@ -747,8 +748,11 @@ namespace Plugin.InAppBilling
             [JsonProperty(PropertyName = "introductoryPriceCycles")]
             public int IntroductoryPriceCycles { get; set; }
 
-            public override string ToString() {
-                return string.Format("[Product: Title={0}, Price={1}, Type={2}, Description={3}, ProductId={4}, CurrencyCode={5}, MicrosPrice={6}, IntroductoryPrice={7}, IntroductoryPriceAmountMicros={8}, IntroductoryPricePeriod={9}, IntroductoryPriceCycles={10}]", Title, Price, Type, Description, ProductId, CurrencyCode, MicrosPrice, IntroductoryPrice, IntroductoryPriceAmountMicros, IntroductoryPricePeriod, IntroductoryPriceCycles);
+			[JsonProperty(PropertyName = "subscriptionPeriod")]
+			public string SubscriptionPeriod { get; set; }
+
+			public override string ToString() {
+                return string.Format("[Product: Title={0}, Price={1}, Type={2}, Description={3}, ProductId={4}, CurrencyCode={5}, MicrosPrice={6}, IntroductoryPrice={7}, IntroductoryPriceAmountMicros={8}, IntroductoryPricePeriod={9}, IntroductoryPriceCycles={10}, SubscriptionPeriod={11}]", Title, Price, Type, Description, ProductId, CurrencyCode, MicrosPrice, IntroductoryPrice, IntroductoryPriceAmountMicros, IntroductoryPricePeriod, IntroductoryPriceCycles, SubscriptionPeriod);
             }
         }
 

@@ -61,6 +61,12 @@ namespace Plugin.InAppBilling.Abstractions
         /// <value><c>true</c> if has introductory price; otherwise, <c>false</c>.</value>
         public bool HasIntroductoryPrice => !string.IsNullOrEmpty(LocalizedIntroductoryPrice);
 
-    }
+		/// <summary>
+		/// Subscription period, specified in ISO 8601 format. For example, P1W equates to one week, 
+		/// P1M equates to one month, P3M equates to three months, P6M equates to six months, and P1Y equates to one year.
+		/// Returned only for subscriptions.
+		/// </summary>
+		public string SubscriptionPeriod { get; set; }
+	}
 
 }
